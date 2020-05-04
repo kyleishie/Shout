@@ -111,11 +111,10 @@ public class SFTP {
         }
     }
     
-    /// Download a file from the remote server to the local device
+    /// Download a file from the remote server into memory
     ///
     /// - Parameters:
     ///   - remotePath: the path to the existing file on the remote server to download
-    ///   - localURL: the location on the local device whether the file should be downloaded to
     /// - Throws: SSHError if file can't be created or download fails
     public func download(remotePath: String) throws -> Data {
         let sftpHandle = try SFTPHandle(
