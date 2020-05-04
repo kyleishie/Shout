@@ -128,14 +128,11 @@ public class SFTP {
         
         var downloadedData = Data()
         
-        var dataLeft = true
-        while dataLeft {
+        while true {
             switch sftpHandle.read() {
             case .data(let data):
                 downloadedData.append(data)
-            case .done:
-                dataLeft = false
-            case .eagain:
+            case .done, .eagain:
                 break
             case .error(let error):
                 throw error
